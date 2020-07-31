@@ -27,9 +27,9 @@ lab:
 
     > **Note**: The **Cloud Shell** icon is represented by a greater than sign (\>) and underscore character (\_).
 
-1.  If this is your first time opening Cloud Shell using your subscription, you can use the **Welcome to Azure Cloud Shell Wizard** to configure Cloud Shell. Perform the following actions in the wizard:
+1.  If this is the first time you are starting **Cloud Shell** and you are presented with the **You have no storage mounted** message, select the subscription you are using in this lab, select **Show advanced settings** and then select **Use existing** and choose existing resource group. Then select **Create new** against Storage account as well as File Share and provide a unique value in both of the fields
     
-    -   When a dialog box prompts you to create a new storage account to begin using the shell, accept the default settings, and then select **Create storage**. 
+    -   Then click on **Create storage** 
 
     > **Note**: Wait for Cloud Shell to finish its initial setup procedures before continuing with the lab. If you don't notice the **Cloud Shell** configuration options, this is most likely because you're using an existing subscription with this course's labs. The labs are written with the presumption that you're using a new subscription.
 
@@ -85,9 +85,9 @@ lab:
 
 1.  On the **Create Topic** blade, perform the following actions:
 
-    1.  In the **Name** text box, enter **hrtopic*[yourname]***.
+    1.  In the **Name** text box, enter **hrtopic*[deployId]***.
     
-    1.  In the **Resource group** section, select **Create new**, enter **PubSubEvents**, and then select **OK**.
+    1.  In the **Resource group** section, select use existing, enter **PubSubEvents-[deployId]**, and then select **OK**.
 
     1.  From the **Location** drop-down list, select the **(US) East US** region.
 
@@ -115,9 +115,9 @@ lab:
     
     1.  Leave the **Subscription** text box set to its default value.
     
-    1.  In the **Resource group** section, select **PubSubEvents**.
+    1.  In the **Resource group** section, select **PubSubEvents-[deployId]**.
 
-    1.  In the **Name** text box, enter **eventviewer*[yourname]***.
+    1.  In the **Name** text box, enter **eventviewer*[deployId]***.
 
     1.  In the **Publish** section, select **Docker Container**.
 
@@ -161,9 +161,9 @@ In this exercise, you created the Event Grid topic and a web app that you will u
 
 1.  In the Azure portal's navigation pane, select **Resource groups**.
 
-1.  On the **Resource groups** blade, select the **PubSubEvents** resource group that you created earlier in this lab.
+1.  On the **Resource groups** blade, select the **PubSubEvents-[deployId]** resource group.
 
-1.  On the **PubSubEvents** blade, select the **eventviewer*[yourname]*** web app that you created earlier in this lab.
+1.  On the **PubSubEvents-[deployId]** blade, select the **eventviewer*[deployId]*** web app that you created earlier in this lab.
 
 1.  On the **App Service** blade, in the **Settings** category, select the **Properties** link.
 
@@ -183,9 +183,9 @@ In this exercise, you created the Event Grid topic and a web app that you will u
 
 1.  In the Azure portal's navigation pane, select **Resource groups**.
 
-1.  On the **Resource groups** blade, select the **PubSubEvents** resource group that you created earlier in this lab.
+1.  On the **Resource groups** blade, select the **PubSubEvents-[deployId]** resource group.
 
-1.  On the **PubSubEvents** blade, select the **hrtopic*[yourname]*** Event Grid topic that you created earlier in this lab.
+1.  On the **PubSubEvents-[deployId]** blade, select the **hrtopic*[deployId]*** Event Grid topic that you created earlier in this lab.
 
 1.  On the **Event Grid Topic** blade, select **+ Event Subscription**.
 
@@ -221,9 +221,9 @@ In this exercise, you created the Event Grid topic and a web app that you will u
 
 1.  In the Azure portal's navigation pane, select **Resource groups**.
 
-1.  On the **Resource groups** blade, select the **PubSubEvents** resource group that you created earlier in this lab.
+1.  On the **Resource groups** blade, select the **PubSubEvents-[deployId]** resource group.
 
-1.  On the **PubSubEvents** blade, select the **hrtopic*[yourname]*** Event Grid topic that you created earlier in this lab.
+1.  On the **PubSubEvents-[deployId]** blade, select the **hrtopic*[deployId]*** Event Grid topic that you created earlier in this lab.
 
 1.  On the **Event Grid Topic** blade, record the value of the **Topic Endpoint** field. You'll use this value later in the lab.
 

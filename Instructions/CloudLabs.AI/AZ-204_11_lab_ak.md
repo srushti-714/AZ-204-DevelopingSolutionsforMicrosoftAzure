@@ -39,9 +39,9 @@ lab:
     
     1.  Leave the **Subscription** text box set to its default value.
     
-    1.  In the **Resource group** section, select **Create new**, enter **AsyncProcessor**, and then select **OK**.
+    1.  In the **Resource group** section, select use existing, enter **AsyncProcessor-[deployId]**, and then select **OK**.
     
-    1.  In the **Storage account name** text box, enter **asyncstor*[yourname]***.
+    1.  In the **Storage account name** text box, enter **asyncstor*[deployId]***.
     
     1.  In the **Location** list, select the **(US) East US** region.
     
@@ -351,9 +351,9 @@ In this exercise, you configured your .NET project to access the Storage service
 
 1.  In the Azure portal's navigation pane, select the **Resource groups** link.
 
-1.  On the **Resource groups** blade, find and then select the **AsyncProcessor** resource group that you created earlier in this lab.
+1.  On the **Resource groups** blade, find and then select the **AsyncProcessor-[deployId]** resource group.
 
-1.  On the **AsyncProcessor** blade, select the **asyncstor*[yourname]*** storage account that you created earlier in this lab.
+1.  On the **AsyncProcessor-[deployId]** blade, select the **asyncstor*[deployId]*** storage account that you created earlier in this lab.
 
 1.  On the **Storage account** blade, select **Overview**. 
 
@@ -377,9 +377,9 @@ In this exercise, you configured your .NET project to access the Storage service
 
     1.  Observe that you are returned back to the **EXPLORER** pane with your subscription information populated.
 
-1.  From the **Azure Storage Explorer** application, in the **EXPLORER** pane, find and expand the **asyncstor*[yourname]*** storage account that you created earlier in this lab.
+1.  From the **Azure Storage Explorer** application, in the **EXPLORER** pane, find and expand the **asyncstor*[deployId]*** storage account that you created earlier in this lab.
 
-1.  Within the **asyncstor*[yourname]*** storage account, find and expand the **Queues** node.
+1.  Within the **asyncstor*[deployId]*** storage account, find and expand the **Queues** node.
 
 1.  In the **Queues** node, open the **messagequeue** queue that you created earlier in this lab by using .NET code.
 
@@ -461,9 +461,9 @@ In this exercise, you configured your .NET project to access the Storage service
 
 1.  Select **Kill Terminal** or the **Recycle Bin** icon to close the currently open terminal and any associated processes.
 
-1.  Return Storage Explorer, and then find and expand the **asyncstor*[yourname]*** storage account that you created earlier in this lab.
+1.  Return Storage Explorer, and then find and expand the **asyncstor*[deployId]*** storage account that you created earlier in this lab.
 
-1.  In the **asyncstor*[yourname]*** storage account, find and expand the **Queues** node.
+1.  In the **asyncstor*[deployId]*** storage account, find and expand the **Queues** node.
 
 1.  In the **Queues** node, open the **messagequeue** queue that you created earlier in this lab by using .NET code.
 
@@ -542,9 +542,9 @@ In this exercise, you read and deleted existing messages from the Storage queue 
 
 #### Task 2: View queued messages by using Storage Explorer
 
-1.  Return to Storage Explorer, and then find and expand the **asyncstor*[yourname]*** storage account that you created earlier in this lab.
+1.  Return to Storage Explorer, and then find and expand the **asyncstor*[deployId]*** storage account that you created earlier in this lab.
 
-1.  In the **asyncstor*[yourname]*** storage account, find and expand the **Queues** node.
+1.  In the **asyncstor*[deployId]*** storage account, find and expand the **Queues** node.
 
 1.  In the **Queues** node, open the **messagequeue** queue that you created earlier in this lab by using .NET code.
 

@@ -20,49 +20,15 @@ lab:
 
     > **Note**: If this is your first time signing in to the Azure portal, you will be offered a tour of the portal. Select **Get Started** to begin using the portal.
 
-#### Task 2: Create a resource group
-
-1.  In the Azure portal's navigation pane, select the **Create a resource** link.
-
-    > **Note**: If you can't find the **Create a resource** link, the **Create a resource** icon is a plus sign (+) character from the portal.
-
-1.  From the **New** blade, find the **Search the Marketplace** text box above the list of featured services.
-
-1.  In the search box, enter the text **Resource Group**, and then select Enter.
-
-1.  From the **Marketplace** search results blade, select the **Resource group** result.
-
-1.  From the **Resource group** blade, select **Create**.
-
-1.  From the additional **Resource group** blade, find the tabs from the blade, such as **Basics**.
-
-    > **Note**: Each tab represents a step in the workflow to create a new resource group. You can select **Review + Create** at any time to skip the remaining tabs.
-
-1.  From the **Basics** tab, perform the following actions:
-    
-    1.  Leave the **Subscription** text box set to its default value.
-    
-    1.  In the **Resource group** text box, enter the value **ContainerCompute**.
-    
-    1.  In the **Region** drop-down list, select the **(US) East US** location.
-    
-    1.  Select **Review + Create**.
-
-1.  From the **Review + Create** tab, review the options that you selected during the previous steps.
-
-1.  Select **Create** to create the resource group by using your specified configuration.  
-
-    > **Note**: Wait for the creation task to complete before moving forward with this lab.
-
-#### Task 3: Open Azure Cloud Shell
+#### Task 2: Open Azure Cloud Shell
 
 1.  In the portal, select the **Cloud Shell** icon to open a new shell instance.
 
     > **Note**: The **Cloud Shell** icon is represented by a greater than sign () and underscore character (\_).
 
-1.  If this is your first time opening Cloud Shell using your subscription, you can use the **Welcome to Azure Cloud Shell Wizard** to configure Cloud Shell for first-time usage. Perform the following actions in the wizard:
+1.  If this is the first time you are starting **Cloud Shell** and you are presented with the **You have no storage mounted** message, select the subscription you are using in this lab, select **Show advanced settings** and then select **Use existing** and choose existing resource group. Then select **Create new** against Storage account as well as File Share and provide a unique value in both of the field. 
     
-    1.  A dialog box prompts you to create a new storage account to begin using the shell. Accept the default settings, and then select **Create storage**. 
+    1.  Then click on **Create storage 
 
     > **Note**: Wait for Cloud Shell to finish its initial setup procedures before moving forward with the lab. If you don't notice the **Cloud Shell** configuration options, this is most likely because you're using an existing subscription with this course's labs. The labs are written with the presumption that you're using a new subscription.
 
@@ -72,7 +38,7 @@ lab:
     az --version
     ```
 
-#### Task 4: Use the Azure CLI commands
+#### Task 3: Use the Azure CLI commands
 
 1.  Enter the following command, and then select Enter to get a list of subgroups and commands at the root level of the CLI:
 
@@ -94,7 +60,7 @@ lab:
 
 1.  Enter the following command, and then select Enter to create a new **virtual machine** with the following settings:
     
-    -	Resource group: **ContainerCompute**
+    -	Resource group: **ContainerCompute-[deployId]**
 
     -	Name: **quickvm**
 
@@ -105,7 +71,7 @@ lab:
     -	Password: **StudentPa55w.rd**
 
     ```
-    az vm create --resource-group ContainerCompute --name quickvm --image Debian --admin-username student --admin-password StudentPa55w.rd
+    az vm create --resource-group ContainerCompute-[deployId] --name quickvm --image Debian --admin-username student --admin-password StudentPa55w.rd
     ```
 
     > **Note**: Wait for the VM creation process to complete. After the process completes, the command will return a JSON file containing details about the machine.
@@ -113,25 +79,25 @@ lab:
 1.  Enter the following command, and then select Enter to get a more detailed JavaScript Object Notation (JSON) file that contains various metadata about the newly created VM:
 
     ```
-    az vm show --resource-group ContainerCompute --name quickvm
+    az vm show --resource-group ContainerCompute-[deployId] --name quickvm
     ```
 
 1.  Enter the following command, and then select Enter to list all the IP addresses associated with the VM:
 
     ```
-    az vm list-ip-addresses --resource-group ContainerCompute --name quickvm
+    az vm list-ip-addresses --resource-group ContainerCompute-[deployId] --name quickvm
     ```
 
 1.  Enter the following command, and then select Enter to filter the output to only return the first IP address value:
 
     ```
-    az vm list-ip-addresses --resource-group ContainerCompute --name quickvm --query '[].{ip:virtualMachine.network.publicIpAddresses[0].ipAddress}' --output tsv
+    az vm list-ip-addresses --resource-group ContainerCompute-[deployId] --name quickvm --query '[].{ip:virtualMachine.network.publicIpAddresses[0].ipAddress}' --output tsv
     ```
 
 1.  Enter the following command, and then select Enter to store the results of the previous command in a new Bash shell variable named *ipAddress*:
 
     ```
-    ipAddress=$(az vm list-ip-addresses --resource-group ContainerCompute --name quickvm --query '[].{ip:virtualMachine.network.publicIpAddresses[0].ipAddress}' --output tsv)
+    ipAddress=$(az vm list-ip-addresses --resource-group ContainerCompute-[deployId] --name quickvm --query '[].{ip:virtualMachine.network.publicIpAddresses[0].ipAddress}' --output tsv)
     ```
 
 1.  Enter the following command, and then select Enter to render the value of the Bash shell variable *ipAddress*:
@@ -303,7 +269,7 @@ In this exercise, you used Cloud Shell to create a VM as part of an automated sc
 
     1.  Leave the **Subscription** text box set to its default value.
 
-    1.  In the **Resource group** drop-down list, select the existing **ContainerCompute** option.
+    1.  In the **Resource group** drop-down list, select the existing **ContainerCompute-[deployId]** option.
 
     1.  In the **Location** text box, select **East US**.
 
@@ -371,9 +337,9 @@ In this exercise, you used Cloud Shell to create a VM as part of an automated sc
 
 1.  In the Azure portal's navigation pane, select the **Resource groups** link.
 
-1.  From the **Resource groups** blade, find and then select the **ContainerCompute** resource group that you created earlier in this lab.
+1.  From the **Resource groups** blade, find and then select the **ContainerCompute-[deployId]** resource group.
 
-1.  From the **ContainerCompute** blade, select the container registry that you created earlier in this lab.
+1.  From the **ContainerCompute-[deployId]** blade, select the container registry that you created earlier in this lab.
 
 1.  From the **Container Registry** blade, find the **Services** section, and then select the **Repositories** link.
 
@@ -395,9 +361,9 @@ In this exercise, you created a .NET console application to display a machine’
 
 1.  In the Azure portal's navigation pane, select the **Resource groups** link.
 
-1.  From the **Resource groups** blade, find and then select the **ContainerCompute** resource group that you created earlier in this lab.
+1.  From the **Resource groups** blade, find and then select the **ContainerCompute-[deployId]** resource group.
 
-1.  From the **ContainerCompute** blade, select the container registry that you created earlier in this lab.
+1.  From the **ContainerCompute-[deployId]** blade, select the container registry that you created earlier in this lab.
 
 1.  From the **Container Registry** blade, select **Update**.
 
@@ -431,7 +397,7 @@ In this exercise, you created a .NET console application to display a machine’
     
     1.  Leave the **Subscription** text box set to its default value.
     
-    1.  In the **Resource group** drop-down list, select **ContainerCompute**.
+    1.  In the **Resource group** drop-down list, select **ContainerCompute-[deployId]**.
     
     1.  In the **Location** drop-down list, select **East US**.
     
@@ -465,7 +431,7 @@ In this exercise, you created a .NET console application to display a machine’
 
     1.  Leave the **Subscription** text box set to its default value.
 
-    1.  In the **Resource group** drop-down list, select **ContainerCompute**.
+    1.  In the **Resource group** drop-down list, select **ContainerCompute-[deployId]**.
     
     1.  In the **Container name** text box, enter **manualcompute**.
 
@@ -491,9 +457,9 @@ In this exercise, you created a .NET console application to display a machine’
 
 1.  In the Azure portal's navigation pane, select the **Resource groups** link.
 
-1.  From the **Resource groups** blade, find and then select the **ContainerCompute** resource group that you created earlier in this lab.
+1.  From the **Resource groups** blade, find and then select the **ContainerCompute-[deployId]** resource group.
 
-1.  From the **ContainerCompute** blade, select the **manualcompute** container instance that you created earlier in this lab.
+1.  From the **ContainerCompute-[deployId]** blade, select the **manualcompute** container instance that you created earlier in this lab.
 
 1.  From the **Container Instance** blade, find the **Settings** section, and then select the **Containers** link.
 

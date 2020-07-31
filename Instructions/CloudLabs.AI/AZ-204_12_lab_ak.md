@@ -41,9 +41,9 @@ lab:
     
     1.  Leave the **Subscription** text box set to its default value.
     
-    1.  In the **Resource group** section, select **Create new**, enter **MonitoredAssets**, and then select **OK**.
+    1.  In the **Resource group** section, select use existing, enter **MonitoredAssets-[deployId]**, and then select **OK**.
     
-    1.  In the **Name** text box, enter **instrm*[yourname]***.
+    1.  In the **Name** text box, enter **instrm*[deployId]***.
     
     1.  In the **Region** drop-down list, select the **(US) East US** region.
     
@@ -57,9 +57,9 @@ lab:
 
 1.  In the Azure portal's navigation pane, select **Resource groups**.
 
-1.  From the **Resource groups** blade, select the **MonitoredAssets** resource group that you created earlier in this lab.
+1.  From the **Resource groups** blade, select the **MonitoredAssets-[deployId]** resource group.
 
-1.  From the **MonitoredAssets** blade, select the **instrm*[yourname]*** Application Insights account that you created earlier in this lab.
+1.  From the **MonitoredAssets-[deployId]** blade, select the **instrm*[deployId]*** Application Insights account that you created earlier in this lab.
 
 1.  From the **Application Insights** blade, in the **Configure** category, select the **Properties** link.
 
@@ -85,9 +85,9 @@ lab:
     
     1.  Leave the **Subscription** text box set to its default value.
     
-    1.  In the **Resource group** drop-down list, select **MonitoredAssets**.
+    1.  In the **Resource group** drop-down list, select **MonitoredAssets-[deployId]**.
     
-    1.  In the **Name** text box, enter ***smpapi\***[yourname]***.
+    1.  In the **Name** text box, enter ***smpapi\***[deployId]***.
 
     1.  In the **Publish** section, select **Code**.
 
@@ -107,7 +107,7 @@ lab:
 
     1.  In the **Enable Application Insights** section, select **Yes**.
 
-    1.  In the **Application Insights** drop-down list, select the **instrm*[yourname]*** Application Insights account that you created earlier in this lab.
+    1.  In the **Application Insights** drop-down list, select the **instrm*[deployId]*** Application Insights account that you created earlier in this lab.
 
     1.  Select **Review + Create**.
 
@@ -119,9 +119,9 @@ lab:
 
 1.  In the Azure portal's navigation pane, select **Resource groups**.
 
-1.  From the **Resource groups** blade, select the **MonitoredAssets** resource group that you created earlier in this lab.
+1.  From the **Resource groups** blade, select the **MonitoredAssets-[deployId]** resource group.
 
-1.  From the **MonitoredAssets** blade, select the ***smpapi\***[yourname]*** web app that you created earlier in this lab.
+1.  From the **MonitoredAssets-[deployId]** blade, select the ***smpapi\***[deployId]*** web app that you created earlier in this lab.
 
 1.  From the **App Service** blade, in the **Settings** category, select the **Configuration** link.
 
@@ -147,7 +147,7 @@ lab:
     
     1.  In the **Autoscale setting name** text box, enter **ComputeScaler**.
     
-    1.  In the **Resource group** list, select **MonitoredAssets**.
+    1.  In the **Resource group** list, select **MonitoredAssets-[deployId]**.
     
     1.  In the **Scale mode** section, select **Scale based on a metric**.
     
@@ -293,9 +293,9 @@ In this exercise, you created the resources that you'll use for the remainder of
 
 1.  In the portal, select **Resource groups**.
 
-1.  From the **Resource groups** blade, find and select the **MonitoredAssets** resource group that you created earlier in this lab.
+1.  From the **Resource groups** blade, find and select the **MonitoredAssets-[deployId]** resource group.
 
-1.  From the **MonitoredAssets** blade, select the **instrm*[yourname]*** Application Insights account that you created earlier in this lab.
+1.  From the **MonitoredAssets-[deployId]** blade, select the **instrm*[deployId]*** Application Insights account that you created earlier in this lab.
 
 1.  From the **Application Insights** blade, in the tiles in the center of the blade, find the displayed metrics. Specifically, find the number of server requests that have occurred and the average server response time.
 
@@ -333,22 +333,22 @@ In this exercise, you created an API by using ASP.NET and configured it to strea
 
     > **Note**: Wait for the sign-in process to finish.
 
-1.  At the command prompt, enter the following command, and then select Enter to list all the apps in your **MonitoredAssets** resource group:
+1.  At the command prompt, enter the following command, and then select Enter to list all the apps in your **MonitoredAssets-[deployId]** resource group:
 
     ```
-    az webapp list --resource-group MonitoredAssets
+    az webapp list --resource-group MonitoredAssets-[deployId]
     ```
 
 1.  Enter the following command, and then select Enter to find the apps that have the prefix **smpapi\***:
 
     ```
-    az webapp list --resource-group MonitoredAssets --query "[?starts_with(name, 'smpapi')]"
+    az webapp list --resource-group MonitoredAssets-[deployId] --query "[?starts_with(name, 'smpapi')]"
     ```
 
 1.  Enter the following command, and then select Enter to render out only the name of the single app that has the **smpapi\***:
 
     ```
-    az webapp list --resource-group MonitoredAssets --query "[?starts_with(name, 'smpapi')].{Name:name}" --output tsv
+    az webapp list --resource-group MonitoredAssets-[deployId] --query "[?starts_with(name, 'smpapi')].{Name:name}" --output tsv
     ```
 
 1.  Enter the following command, and then select Enter to change the current directory to the **Allfiles (F):\\Allfiles\\Labs\\12\\Starter** directory that contains the deployment files:
@@ -360,7 +360,7 @@ In this exercise, you created an API by using ASP.NET and configured it to strea
 1.  Enter the following command, and then select Enter to deploy the **api.zip** file to the web app that you created earlier in this lab:
 
     ```
-    az webapp deployment source config-zip --resource-group MonitoredAssets --src api.zip --name <name-of-your-api-app>
+    az webapp deployment source config-zip --resource-group MonitoredAssets-[deployId] --src api.zip --name <name-of-your-api-app>
     ```
 
     > **Note**: Replace the *name-of-your-api-app* placeholder with the name of the web app that you created earlier in this lab. You recently queried this app’s name in the previous steps.   
@@ -373,9 +373,9 @@ In this exercise, you created an API by using ASP.NET and configured it to strea
 
 1.  In the Azure portal's navigation pane, select **Resource groups**.
 
-1.  From the **Resource groups** blade, select the **MonitoredAssets** resource group that you created earlier in this lab.
+1.  From the **Resource groups** blade, select the **MonitoredAssets-[deployId]** resource group.
 
-1.  From the **MonitoredAssets** blade, select the ***smpapi\***[yourname]*** web app that you created earlier in this lab.
+1.  From the **MonitoredAssets-[deployId]** blade, select the ***smpapi\***[deployId]*** web app that you created earlier in this lab.
 
 1.  From the **App Service** blade, select **Browse**. A new browser window or tab will open and return a "404 (Not Found)" error.
 
@@ -391,9 +391,9 @@ In this exercise, you created an API by using ASP.NET and configured it to strea
 
 1.  In the Azure portal's navigation pane, select **Resource groups**.
 
-1.  From the **Resource groups** blade, select the **MonitoredAssets** resource group that you created earlier in this lab.
+1.  From the **Resource groups** blade, select the **MonitoredAssets-[deployId]** resource group.
 
-1.  From the **MonitoredAssets** blade, select the ***smpapi\***[yourname]*** web app that you created earlier in this lab.
+1.  From the **MonitoredAssets-[deployId]** blade, select the ***smpapi\***[deployId]*** web app that you created earlier in this lab.
 
 1.  From the **App Service** blade, select **Application Insights**.
 
@@ -435,9 +435,9 @@ In this exercise, you created an API by using ASP.NET and configured it to strea
 
 1.  In the portal, select **Resource groups**.
 
-1.  From the **Resource groups** blade, find and select the **MonitoredAssets** resource group that you created earlier in this lab.
+1.  From the **Resource groups** blade, find and select the **MonitoredAssets-[deployId]** resource group.
 
-1.  From the **MonitoredAssets** blade, select the **instrm*[yourname]*** Application Insights account that you created earlier in this lab.
+1.  From the **MonitoredAssets-[deployId]** blade, select the **instrm*[deployId]*** Application Insights account that you created earlier in this lab.
 
 1.  From the **Application Insights** blade, in the tiles in the center of the blade, find the displayed metrics. Specifically, find the number of server requests that have occurred and the average server response time.
 
@@ -449,9 +449,9 @@ In this exercise, you created an API by using ASP.NET and configured it to strea
 
 1.  In the portal, select **Resource groups**.
 
-1.  From the **Resource groups** blade, find and select the **MonitoredAssets** resource group that you created earlier in this lab.
+1.  From the **Resource groups** blade, find and select the **MonitoredAssets-[deployId]** resource group.
 
-1.  From the **MonitoredAssets** blade, select the **instrm*[yourname]*** Application Insights account that you created earlier in this lab.
+1.  From the **MonitoredAssets-[deployId]** blade, select the **instrm*[deployId]*** Application Insights account that you created earlier in this lab.
 
 1.  From the **Application Insights** blade, select **Live Metrics Stream** in the **Investigate** section.
 

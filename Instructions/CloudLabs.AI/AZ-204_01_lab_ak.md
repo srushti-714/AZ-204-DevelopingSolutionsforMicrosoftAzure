@@ -13,7 +13,7 @@ lab:
 
 1.  On the taskbar, select the **Microsoft Edge** icon.
 
-1.  In the open browser window, go to the Azure portal (<https://portal.azure.com>).
+1.  In the open browser window, go to https://portal.azure.com.
 
 1.  At the sign-in page, enter the email address for your Microsoft account, and then select **Next**.
 
@@ -39,9 +39,9 @@ lab:
     
     1.  Leave the **Subscription** text box set to its default value.
     
-    1.  In the **Resource group** section, select **Create new**, enter **ManagedPlatform**, and then select **OK**.
+    1.  In the **Resource group** section, use existing, enter **ManagedPlatform-[deployId]**, and then select **OK**.
     
-    1.  In the **Storage account name** text box, enter **imgstor*[yourname]***.
+    1.  In the **Storage account name** text box, enter **imgstor*[deployId]***.
     
     1.  In the **Location** list, select the **(US) East US** region.
     
@@ -73,9 +73,9 @@ lab:
 
 1.  In the Azure portal's navigation pane, select **Resource groups**.
 
-1.  From the **Resource groups** blade, select the **ManagedPlatform** resource group that you created earlier in this lab.
+1.  From the **Resource groups** blade, select the **ManagedPlatform-[deployId]** resource group.
 
-1.  From the **ManagedPlatform** blade, select the **imgstor*[yourname]*** storage account that you created earlier in this lab.
+1.  From the **ManagedPlatform-[deployId]** blade, select the **imgstor*[deployId]*** storage account that you created earlier in this lab.
 
 1.  From the **Storage Account** blade, in the **Blob service** section, select the **Containers** link.
 
@@ -119,9 +119,9 @@ lab:
     
     1.  Leave the **Subscription** text box set to its default value.
     
-    1.  In the **Resource group** drop-down list, select **ManagedPlatform**.
+    1.  In the **Resource group** drop-down list, select **ManagedPlatform-[deployId]**.
     
-    1.  In the **Name** text box, enter **imgapi*[yourname]***.
+    1.  In the **Name** text box, enter **imgapi*[deployId]***.
 
     1.  In the **Publish** section, select **Code**.
 
@@ -151,9 +151,9 @@ lab:
 
 1.  In the Azure portal's navigation pane, select **Resource groups**.
 
-1.  From the **Resource groups** blade, select the **ManagedPlatform** resource group that you created earlier in this lab.
+1.  From the **Resource groups** blade, select the **ManagedPlatform-[deployId]** resource group.
 
-1.  From the **ManagedPlatform** blade, select the **imgapi*[yourname]*** web app that you created earlier in this lab.
+1.  From the **ManagedPlatform-[deployId]** blade, select the **imgapi*[deployId]*** web app that you created earlier in this lab.
 
 1.  From the **Web App** blade, in the **Settings** section, select the **Configuration** link.
 
@@ -209,22 +209,22 @@ lab:
 
 1.	Return to the currently open **Command Prompt** window. Wait for the sign-in process to finish.
 
-1.	At the command prompt, enter the following command, and then select Enter to list all the apps in your **ManagedPlatform** resource group:
+1.	At the command prompt, enter the following command, and then select Enter to list all the apps in your **ManagedPlatform-[deployId]** resource group:
 
     ```
-    az webapp list --resource-group ManagedPlatform
+    az webapp list --resource-group ManagedPlatform-[deployId]
     ```
 
 1.	Enter the following command, and then select Enter to find the apps that have the **imgapi\*** prefix:
 
     ```
-    az webapp list --resource-group ManagedPlatform --query "[?starts_with(name, 'imgapi')]"
+    az webapp list --resource-group ManagedPlatform-[deployId] --query "[?starts_with(name, 'imgapi')]"
     ```
 
 1.	Enter the following command, and then select Enter to render only the name of the single app that has the **imgapi\*** prefix:
 
     ```
-    az webapp list --resource-group ManagedPlatform --query "[?starts_with(name, 'imgapi')].{Name:name}" --output tsv
+    az webapp list --resource-group ManagedPlatform-[deployId] --query "[?starts_with(name, 'imgapi')].{Name:name}" --output tsv
     ```
 
 1.	Enter the following command, and then select Enter to change the current directory to the **Allfiles (F):\\Allfiles\\Labs\\01\\Starter\\API** directory that contains the lab files:
@@ -236,7 +236,7 @@ lab:
 1.	Enter the following command, and then select Enter to deploy the **api.zip** file to the web app that you created earlier in this lab:
 
     ```
-    az webapp deployment source config-zip --resource-group ManagedPlatform --src api.zip --name <name-of-your-api-app>
+    az webapp deployment source config-zip --resource-group ManagedPlatform-[deployId] --src api.zip --name <name-of-your-api-app>
     ```
 
     > **Note**: Replace the *\<name-of-your-api-app\>* placeholder with the name of the web app that you created earlier in this lab. You recently queried this app’s name in the previous steps.
@@ -245,9 +245,9 @@ lab:
 
 1.  In the Azure portal's navigation pane, select the **Resource groups** link.
 
-1.	From the **Resource groups** blade, find and select the **ManagedPlatform** resource group that you created earlier in this lab.
+1.	From the **Resource groups** blade, find and select the **ManagedPlatform-[deployId]** resource group.
 
-1.	From the **ManagedPlatform** blade, select the **imgapi*[yourname]*** web app that you created earlier in this lab.
+1.	From the **ManagedPlatform-[deployId]** blade, select the **imgapi*[deployId]*** web app that you created earlier in this lab.
 
 1.	From the **Web App** blade, select **Browse**.
 
@@ -283,9 +283,9 @@ In this exercise, you created a web app in Azure and then deployed your ASP.NET 
     
     1.  Leave the **Subscription** text box set to its default value.
     
-    1.  In the **Resource group** drop-down list, select **ManagedPlatform**.
+    1.  In the **Resource group** drop-down list, select **ManagedPlatform-[deployId]**.
     
-    1.  In the **Name** text box, enter **imgweb*[yourname]***.
+    1.  In the **Name** text box, enter **imgweb*[deployId]***.
 
     1.  In the **Publish** section, select **Code**.
 
@@ -313,9 +313,9 @@ In this exercise, you created a web app in Azure and then deployed your ASP.NET 
 
 1.  In the Azure portal's navigation pane, select **Resource groups**.
 
-1.  From the **Resource groups** blade, select the **ManagedPlatform** resource group that you created earlier in this lab.
+1.  From the **Resource groups** blade, select the **ManagedPlatform-[deployId]** resource group.
 
-1.  From the **ManagedPlatform** blade, select the **imgweb*[yourname]*** web app that you created earlier in this lab.
+1.  From the **ManagedPlatform-[deployId]** blade, select the **imgweb*[deployId]*** web app that you created earlier in this lab.
 
 1.  From the **Web App** blade, in the **Settings** section, select the **Configuration** link.
 
@@ -367,22 +367,22 @@ In this exercise, you created a web app in Azure and then deployed your ASP.NET 
 
 1.	Return to the currently open **Command Prompt** window. Wait for the sign-in process to finish.
 
-1.	Enter the following command, and then select Enter to list all the apps in your **ManagedPlatform** resource group:
+1.	Enter the following command, and then select Enter to list all the apps in your **ManagedPlatform-[deployId]** resource group:
 
     ```
-    az webapp list --resource-group ManagedPlatform
+    az webapp list --resource-group ManagedPlatform-[deployId]
     ```
 
 1.	Enter the following command, and then select Enter to find the apps that have the **imgweb\*** prefix:
 
     ```
-    az webapp list --resource-group ManagedPlatform --query "[?starts_with(name, 'imgweb')]"
+    az webapp list --resource-group ManagedPlatform-[deployId] --query "[?starts_with(name, 'imgweb')]"
     ```
 
 1.	Enter the following command, and then select Enter to render only the name of the single app that has the **imgweb\*** prefix:
 
     ```
-    az webapp list --resource-group ManagedPlatform --query "[?starts_with(name, 'imgweb')].{Name:name}" --output tsv
+    az webapp list --resource-group ManagedPlatform-[deployId] --query "[?starts_with(name, 'imgweb')].{Name:name}" --output tsv
     ```
 
 1.	Enter the following command, and then select Enter to change the current directory to the **Allfiles (F):\\Allfiles\\Labs\\01\\Starter\\Web** directory that contains the lab files:
@@ -394,7 +394,7 @@ In this exercise, you created a web app in Azure and then deployed your ASP.NET 
 1.	Enter the following command, and then select Enter to deploy the **web.zip** file to the web app that you created earlier in this lab:
 
     ```
-    az webapp deployment source config-zip --resource-group ManagedPlatform --src web.zip --name <name-of-your-web-app>
+    az webapp deployment source config-zip --resource-group ManagedPlatform-[deployId] --src web.zip --name <name-of-your-web-app>
     ```
 
     > **Note**: Replace the *\<name-of-your-web-app\>* placeholder with the name of the web app that you created earlier in this lab. You recently queried this app’s name in the previous steps.
@@ -403,9 +403,9 @@ In this exercise, you created a web app in Azure and then deployed your ASP.NET 
 
 1.	In the Azure portal's navigation pane, select **Resource groups**.
 
-1.	From the **Resource groups** blade, select the **ManagedPlatform** resource group that you created earlier in this lab.
+1.	From the **Resource groups** blade, select the **ManagedPlatform-[deployId]** resource group.
 
-1.	From the **ManagedPlatform** blade, select the **imgweb*[yourname]*** web app that you created earlier in this lab.
+1.	From the **ManagedPlatform-[deployId]** blade, select the **imgweb*[deployId]*** web app that you created earlier in this lab.
 
 1.	From the **Web App** blade, select **Browse**.
 
