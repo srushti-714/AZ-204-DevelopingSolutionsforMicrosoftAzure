@@ -1,0 +1,14 @@
+[ {
+  "Name": "Creating Azure App Service Web Apps",
+  "Language": "English",
+  "Files": [
+    {
+      "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ-204-DevelopingSolutionsforMicrosoftAzure/prod/Instructions/CloudLabs.AI/AZ-204_01_lab.md",
+      "Order": 1
+    },
+    {
+      "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ-204-DevelopingSolutionsforMicrosoftAzure/prod/Instructions/CloudLabs.AI/AZ-204_01_lab_ak.md",
+      "Order": 2
+    }
+  ]
+} ]

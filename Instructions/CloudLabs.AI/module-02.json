@@ -1,0 +1,14 @@
+[ {
+  "Name": "Implement Azure Functions",
+  "Language": "English",
+  "Files": [
+    {
+      "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ-204-DevelopingSolutionsforMicrosoftAzure/prod/Instructions/CloudLabs.AI/AZ-204_02_lab.md",
+      "Order": 1
+    },
+    {
+      "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ-204-DevelopingSolutionsforMicrosoftAzure/prod/Instructions/CloudLabs.AI/AZ-204_02_lab_ak.md",
+      "Order": 2
+    }
+  ]
+} ]

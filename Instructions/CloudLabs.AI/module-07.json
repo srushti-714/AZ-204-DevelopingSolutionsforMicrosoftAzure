@@ -1,0 +1,14 @@
+[ {
+  "Name": "Implement secure cloud solutions",
+  "Language": "English",
+  "Files": [
+    {
+      "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ-204-DevelopingSolutionsforMicrosoftAzure/prod/Instructions/CloudLabs.AI/AZ-204_07_lab.md",
+      "Order": 1
+    },
+    {
+      "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ-204-DevelopingSolutionsforMicrosoftAzure/prod/Instructions/CloudLabs.AI/AZ-204_07_lab_ak.md",
+      "Order": 2
+    }
+  ]
+} ]
